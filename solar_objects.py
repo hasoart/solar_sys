@@ -8,7 +8,7 @@ class Star:
     а также визуальный радиус звезды в пикселах и её цвет.
     """
 
-    def __init__(self, m, x, y, R, color, Vx, Vy, Fx, Fy):
+    def __init__(self, m, x, y, R, color, Vx, Vy):
         '''
         m - масса звезды
         x, y - ее координаты
@@ -17,7 +17,7 @@ class Star:
         Vx, Vy - скорости вдоль координат
         Fx, Fy - силы вдоль координат
         '''
-        self.type = "star"
+        self.type = "Star"
         self.m = m
         self.x = x
         self.y = y
@@ -36,7 +36,7 @@ class Planet:
     а также визуальный радиус планеты в пикселах и её цвет
     """
 
-    def __init__(self, m, x, y, R, color, Vx, Vy, Fx, Fy):
+    def __init__(self, m, x, y, R, color, Vx, Vy):
         '''
         m - масса планеты
         x, y - ее координаты
@@ -45,7 +45,7 @@ class Planet:
         Vx, Vy - скорости вдоль координат
         Fx, Fy - силы вдоль координат
         '''
-        self.type = "planet"
+        self.type = "Planet"
         self.m = m
         self.x = x
         self.y = y
