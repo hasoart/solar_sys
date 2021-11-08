@@ -8,8 +8,9 @@ class Star:
     а также визуальный радиус звезды в пикселах и её цвет.
     """
 
-    def __init__(self, m, x, y, R, color, Vx, Vy):
+    def __init__(self, object_dict):
         '''
+        получает на вход словарь, содержащий характеристики объекта:
         m - масса звезды
         x, y - ее координаты
         R - радиус звезды
@@ -17,14 +18,14 @@ class Star:
         Vx, Vy - скорости вдоль координат
         Fx, Fy - силы вдоль координат
         '''
-        self.type = "Star"
-        self.m = m
-        self.x = x
-        self.y = y
-        self.R = R
-        self.color = color
-        self.Vx = Vx
-        self.Vy = Vy
+        self.type = object_dict["type"]
+        self.m = object_dict["m"]
+        self.x = object_dict["x"]
+        self.y = object_dict["y"]
+        self.R = object_dict["R"]
+        self.color = object_dict["color"]
+        self.Vx = object_dict["Vx"]
+        self.Vy = object_dict["Vy"]
         self.Fx = 0
         self.Fy = 0
 
@@ -36,8 +37,9 @@ class Planet:
     а также визуальный радиус планеты в пикселах и её цвет
     """
 
-    def __init__(self, m, x, y, R, color, Vx, Vy):
+    def __init__(self, object_dict):
         '''
+        получает на вход словарь, содержащий характеристики объекта:
         m - масса планеты
         x, y - ее координаты
         R - радиус планеты
@@ -45,13 +47,13 @@ class Planet:
         Vx, Vy - скорости вдоль координат
         Fx, Fy - силы вдоль координат
         '''
-        self.type = "Planet"
-        self.m = m
-        self.x = x
-        self.y = y
-        self.R = R
-        self.color = color
-        self.Vx = Vx
-        self.Vy = Vy
+        self.type = object_dict["type"]
+        self.m = object_dict["m"]
+        self.x = object_dict["x"]
+        self.y = object_dict["y"]
+        self.R = object_dict["R"]
+        self.color = object_dict["color"]
+        self.Vx = object_dict["Vx"]
+        self.Vy = object_dict["Vy"]
         self.Fx = 0
         self.Fy = 0
