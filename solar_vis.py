@@ -2,19 +2,21 @@
 # license: GPLv3
 
 import pygame as pg
+import pygame.draw as draw
 
-"""Модуль визуализации.
+"""
+Модуль визуализации.
 Нигде, кроме этого модуля, не используются экранные координаты объектов.
-Функции, создающие гaрафические объекты и перемещающие их на экране, принимают физические координаты
+Функции, создающие графические объекты и перемещающие их на экране, принимают физические координаты
 """
 
 header_font = "Arial-16"
 """Шрифт в заголовке"""
 
-window_width = 800
+window_width = 1000
 """Ширина окна"""
 
-window_height = 800
+window_height = 900
 """Высота окна"""
 
 scale_factor = 1
@@ -28,7 +30,7 @@ scale_factor = 1
 def calculate_scale_factor(max_distance):
     """Вычисляет значение глобальной переменной **scale_factor** по данной характерной длине"""
     global scale_factor
-    scale_factor = 0.5*min(window_height, window_width)/max_distance
+    scale_factor = 0.5 * min(window_height, window_width) / max_distance
     print('Scale factor:', scale_factor)
 
 
@@ -43,7 +45,7 @@ def scale_x(x):
     **x** — x-координата модели.
     """
 
-    return int(x*scale_factor) + window_width//2
+    return int(x * scale_factor) + window_width // 2
 
 
 def scale_y(y):
@@ -57,18 +59,13 @@ def scale_y(y):
 
     **y** — y-координата модели.
     """
-    return window_height//2 - int(y*scale_factor)
 
-
-
-if __name__ == "__main__":
-    print("This module is not for direct call!")
+    return window_height // 2 - int(y * scale_factor)
 
 
 class Drawer:
     def __init__(self, screen):
         self.screen = screen
-
 
     def update(self, figures, ui):
         self.screen.fill((0, 0, 0))
@@ -85,4 +82,11 @@ class DrawableObject:
         self.obj = obj
 
     def draw(self, surface):
-            pass  # FIXME
+        global scale_factor
+
+        x, y = scale_x(self.obj.x), scale_y(self.obj.y)
+        draw.circle(surface, self.obj.color, (x, y), self.obj.R, width=0)
+
+
+if __name__ == "__main__":
+    print("This module is not for direct call!")

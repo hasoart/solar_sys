@@ -31,7 +31,6 @@ def read_space_objects_data_from_file(input_filename):
 
 
 def write_space_objects_data_to_file(output_filename, space_objects):
-    # TODO
     """Сохраняет данные о космических объектах в файл.
 
     Строки должны иметь следующий формат:
@@ -46,10 +45,33 @@ def write_space_objects_data_to_file(output_filename, space_objects):
 
     **space_objects** — список объектов планет и звёзд
     """
+    objects = {"objects": []}
+    for space_object in space_objects:
+        obj_type = space_object.type
+        obj_R = space_object.R
+        obj_color = space_object.color
+        obj_m = space_object.m
+
+        obj_x = space_object.x
+        obj_y = space_object.y
+        obj_Vx = space_object.Vx
+        obj_Vy = space_object.Vy
+
+        obj = {
+            "type": obj_type,
+            "R": obj_R,
+            "color": obj_color,
+            "m": obj_m,
+            "x": obj_x,
+            "y": obj_y,
+            "Vx": obj_Vx,
+            "Vy": obj_Vy
+        }
+
+        objects["objects"].append(obj)
+
     with open(output_filename, 'w') as out_file:
-        for obj in space_objects:
-            print(out_file, "%s %d %s %f" % ('1', 2, '3', 4.5))
-            # FIXME!
+        json.dump(objects, out_file, indent=4)
 
 
 if __name__ == "__main__":
